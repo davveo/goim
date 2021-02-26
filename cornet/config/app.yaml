@@ -1,0 +1,5 @@
+app:
+  logFile: log/gin.log
+  httpPort: 8080
+  rpcPort: 9001
+  CryptoKey:  Adba723b7fe06819
