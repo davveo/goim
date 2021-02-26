@@ -33,6 +33,13 @@
 
 - 如何实现注册与自动发现？
 
+#### TODO
+- 关闭链接的处理
+
+#### 消息
+- A通过http发送的消息-->api---->logic---->mq--->cornet----> B
+- A 通过ws发送消息--->cornet(如果发送的client处于本机器上, 直接发, 否则走后续流出) ---> mq-----> cornet----> B
+
 #### 参考项目
 
 - https://github.com/LockGit/gochat

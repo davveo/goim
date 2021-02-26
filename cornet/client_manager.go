@@ -3,12 +3,14 @@ package main
 import (
 	"sync"
 
+	"github.com/davveo/goim/cornet/lib/cmap"
+
 	"github.com/sirupsen/logrus"
 )
 
 // 连接管理
 type ClientManager struct {
-	Clients *ConcurrentMap // 全部的连接
+	Clients *cmap.ConcurrentMap // 全部的连接
 	//ClientsLock sync.RWMutex       // 读写锁
 	Users      map[string]*Client // 登录的用户 // appId+uuid
 	UserLock   sync.RWMutex       // 读写锁
@@ -18,7 +20,7 @@ type ClientManager struct {
 }
 
 func NewClientManager() (clientManager *ClientManager) {
-	concurrentMap := NewConcurrentMap()
+	concurrentMap := cmap.NewConcurrentMap()
 	clientManager = &ClientManager{
 		Clients:    &concurrentMap,
 		Users:      make(map[string]*Client),
