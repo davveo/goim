@@ -40,7 +40,7 @@ func WsController(w http.ResponseWriter, req *http.Request) {
 
 	if len(uid) == 0 || len(appId) == 0 {
 		conn.WriteJSON(Data{
-			Code: code.SYSTEM_ID_ERROR,
+			Code: code.SystemIdError,
 			Msg:  "用户id或者appId非法",
 			Data: nil,
 		})

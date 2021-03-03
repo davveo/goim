@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/davveo/goim/api/controller"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 const (
@@ -12,12 +12,9 @@ const (
 func main() {
 	router := gin.Default()
 
-	router.GET("/login", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{})
-	})
-	router.POST("/register", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{})
-	})
+	router.GET("api/v1/login", controller.Login)
+	router.POST("api/v1/register", controller.Register)
+	router.POST("api/v1/push", controller.Push)
 
 	if err := router.Run(hostPort); err != nil {
 		panic(err)
